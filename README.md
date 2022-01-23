@@ -43,13 +43,14 @@ $ echo "\$_cpu_emu = \"full\"" >> ~/.dosemurc
 Next, clone this repository from github, including all submodules:
 
 ````sh
-$ git clone --recurse-submodules https://github.com/cubanismo/jaguar-sdk
+$ git clone --recurse-submodules https://github.com/phoboz/jaguar-sdk
 ````
 
 Finally, build the tools which are provided as source:
 
 ````sh
 $ cd jaguar-sdk
+$ . ./env.sh
 $ ./maketools.sh
 ````
 
