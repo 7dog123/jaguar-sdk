@@ -1,16 +1,15 @@
-FROM debian
+FROM ubuntu:18.04
 
 LABEL maintainer="James Jones <atari@theinnocuous.com>"
 
 COPY . /jaguar-sdk
 
-# Need to add stretch repo to get old dosemu package.  It was dropped in buster
-RUN echo 'deb http://deb.debian.org/debian stretch contrib' > /etc/apt/sources.list.d/contrib.list
-
 RUN apt-get update && \
-	apt-get install -y wget build-essential libusb-dev dosemu
+    apt-get install -y wget build-essential libusb-dev dosemu git
 
 WORKDIR /jaguar-sdk
+
+RUN git submodule update --init
 
 RUN ./maketools.sh
 RUN ./docker/cleanup_image.sh
