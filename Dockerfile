@@ -11,6 +11,10 @@ WORKDIR /jaguar-sdk
 
 RUN git submodule update --init
 
+RUN git config --global user.email "you@example.com"
+RUN git config --global user.name "Your Name"
+
+
 RUN ./maketools.sh
 RUN ./docker/cleanup_image.sh
 
