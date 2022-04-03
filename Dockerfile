@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 LABEL maintainer="James Jones <atari@theinnocuous.com>"
 
-COPY . /jaguar-sdk
+COPY . /jaguar-sdk . /env.sh
 
 RUN apt-get update && \
     apt-get install -y wget build-essential libusb-dev dosemu git
@@ -14,7 +14,7 @@ RUN git submodule update --init
 RUN git config --global user.email "you@example.com"
 RUN git config --global user.name "Your Name"
 
-
+RUN bash env.sh
 RUN ./maketools.sh
 RUN ./docker/cleanup_image.sh
 
