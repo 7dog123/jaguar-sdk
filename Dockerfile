@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 LABEL maintainer="James Jones <atari@theinnocuous.com>"
 
-COPY . /jaguar-sdk . /env.sh
+COPY . /jaguar-sdk
 
 RUN apt-get update && \
     apt-get install -y wget build-essential libusb-dev dosemu git
